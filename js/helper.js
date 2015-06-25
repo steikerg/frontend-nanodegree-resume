@@ -59,6 +59,8 @@ var HTMLonlineURL = '<a href="%data%" target="_blank">- Course Description</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
+var googleMapInfoWindow = '<div class="mapinfo-text">%data%</div>'
+  //"<h4>%data%<h4>"
 
 
 /*
@@ -97,8 +99,8 @@ This is the fun part. Here's where we generate the custom Google Map for the web
 See the documentation below for more details.
 https://developers.google.com/maps/documentation/javascript/reference
 */
-var map;    // declares a global map variable
 
+var map;    // declares a global map variable
 
 /*
 Start here! initializeMap() is called when page is loaded.
@@ -168,13 +170,15 @@ function initializeMap() {
     // infoWindows are the little helper windows that open when you click
     // or hover over a pin on a map. They usually contain more information
     // about a location.
+    var formattedInfoWindowText = googleMapInfoWindow.replace("%data%", name);
     var infoWindow = new google.maps.InfoWindow({
-      content: name
+      content: formattedInfoWindowText
     });
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
       // your code goes here!
+      infoWindow.open(map, marker)
     });
 
     // this is where the pin actually gets added to the map.
