@@ -13,10 +13,12 @@ var bio = {
   "picture" : "./images/me25.jpg",
   "welcome-message" : "Nice to see you.",
   "skills" : [ "Javascript",
+                "HTML5",
+                "CSS",
+                "Bootstrap",
                 "SQL",
                 "SqlServer",
-                "Unix Korn Shell",
-                "MS Access" ],
+                "Unix Korn Shell" ],
   "displayName": function() {
         var formattedName =HTMLheaderName.replace("%data%",bio.name);
         var formattedRole =HTMLheaderRole.replace("%data%",bio.role);
